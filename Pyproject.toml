@@ -10,7 +10,7 @@ product = "Cứ Bình Thường"
 company = "Cứ Bình Thường"
 
 [tool.flet.app]
-path = "src"
+path = "."
 
 [tool.flet.android]
 package = "com.cubinhthuong.app"
