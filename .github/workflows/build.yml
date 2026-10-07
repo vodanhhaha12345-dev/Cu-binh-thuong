@@ -36,8 +36,14 @@ jobs:
           channel: 'stable'
           cache: true
 
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
       - name: Accept Android licenses
-        run: yes | flutter doctor --android-licenses || true
+        run: yes | sdkmanager --licenses || true
+
+      - name: Verify Android licenses
+        run: flutter doctor --android-licenses || true
 
       - name: Build APK
         run: flet build apk --project "Cứ Bình Thường" --org "com.cubinhtthuong" --yes
