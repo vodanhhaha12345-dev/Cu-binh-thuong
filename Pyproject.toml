@@ -1,0 +1,16 @@
+[project]
+name = "cu-binh-thuong"
+version = "1.0.0"
+description = "App Cứ Bình Thường"
+requires-python = ">=3.9"
+
+[tool.flet]
+org = "com.cubinhthuong"
+product = "Cứ Bình Thường"
+company = "Cứ Bình Thường"
+
+[tool.flet.app]
+path = "src"
+
+[tool.flet.android]
+package = "com.cubinhthuong.app"
