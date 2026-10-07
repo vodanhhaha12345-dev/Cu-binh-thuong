@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 30
     env:
       CI: "true"
       FLET_CLI_NO_INTERACTIVE: "true"
@@ -36,11 +36,14 @@ jobs:
           channel: 'stable'
           cache: true
 
-      - name: Check Flutter
-        run: flutter --version
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Accept Android licenses
+        run: yes | sdkmanager --licenses || true
 
       - name: Build APK
-        run: flet build apk --project "Cứ Bình Thường" --org "com.cubinhtthuong" --yes --verbose
+        run: flet build apk --project "Cứ Bình Thường" --org "com.cubinhtthuong" --yes
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
